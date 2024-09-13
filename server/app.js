@@ -2,6 +2,8 @@
 
 const express = require("express"); 
 
+const userRouter = require("./routes/user.route");
+
 //importing mongoose
 const mongoose = require("mongoose"); 
 
@@ -17,9 +19,11 @@ mongoose.connect(process.env.MONGO_URL)
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Welcome!");
-})
+app.use('/route', userRouter);
+
+
+
+
 
 
 
